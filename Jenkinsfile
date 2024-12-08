@@ -1,15 +1,16 @@
 node {
     stage('Clone') {
-        git 'https://github.com/Hedi-Mezghani/jenkins-helloworlds.git'
+        echo 'Clonage du dépôt...'
+        git branch: 'main', url: 'https://github.com/Hedi-Mezghani/jenkins-helloworlds.git'
     }
 
     stage('Debug') {
-        // Lister les fichiers pour vérifier leur emplacement
+        echo 'Vérification de la structure des fichiers...'
         sh 'ls -R'
     }
 
     stage('Build and Run') {
-        // Compilation et exécution dans le bon répertoire
+        echo 'Compilation et exécution...'
         sh '''
         cd jenkins-helloworlds
         javac Main.java
